@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SearchBar from './SearchBar';
-import Login from '../pages/Login';
+import { FiLogIn } from 'react-icons/fi';
+import '../styles/navBar.css'; // Fichier CSS séparé
 
 const Navbar = () => {
   return (
@@ -18,7 +19,7 @@ const Navbar = () => {
         </div>
         <div className='login'>
           <Link to="/Login">
-            <h1>Login</h1>
+            <FiLogIn className="text-white hover:text-gray-400" /> {/* Ajout de styles spécifiques pour le bouton de connexion */}
           </Link>
         </div>
       </div>
