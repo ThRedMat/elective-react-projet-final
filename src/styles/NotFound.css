@@ -1,0 +1,18 @@
+.container {
+    width: 100%;
+    max-width: 1200px;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    color: white;
+    background-color: #1a202c;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .btn:hover {
+    background-color: #2d3748;
+  }
+  

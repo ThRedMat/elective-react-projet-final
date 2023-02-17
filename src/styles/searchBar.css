@@ -1,0 +1,42 @@
+/* Couleur d'accent */
+.input-group input:focus {
+    border-color: #6366f1;
+  }
+  
+  /* Transition de focus */
+  .input-group input:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+  }
+  
+  /* Bordure arrondie */
+  .input-group input {
+    border-radius: 9999px;
+  }
+  
+  /* Remplissage */
+  .input-group input {
+    padding: 0.5rem 1rem;
+  }
+  
+  /* Taille */
+  .input-group input {
+    width: 100%;
+  }
+  
+  /* Couleur de fond */
+  .input-group input {
+    background-color: #f3f4f6;
+  }
+  
+  /* Couleur de bordure */
+  .input-group input {
+    border-color: #e5e7eb;
+  }
+  
+  /* Espacement en haut et en bas */
+  .input-group {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+  

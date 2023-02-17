@@ -4,7 +4,7 @@ import Index from "./pages/Index";
 import InfoManga from "./pages/InfoManga";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import AnimeList from './components/AnimeList';
-import NotFound from './components/PageNotFound';
+import NotFound from './pages/PageNotFound';
 
 function App() {
   return (
