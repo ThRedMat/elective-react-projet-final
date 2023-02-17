@@ -57,9 +57,7 @@ button {
 
 }
 
-
-
-.edit-profile {
+.profile {
     position: absolute;
     width: 600px;
     height: 400px;
@@ -73,7 +71,7 @@ button {
     border: solid 1px black
 }
 
-.edit-profile h1 {
+.profile h1 {
     text-align: left;
     margin-top: 25px;
     margin-left: 15px;
@@ -81,7 +79,7 @@ button {
     font-size: 18pt;
 }
 
-.edit-profile p {
+.profile p {
     text-align: center;
     margin: 20px;
     font-family: Arial, Helvetica, sans-serif;
