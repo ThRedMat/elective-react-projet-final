@@ -127,3 +127,26 @@ button {
 .btns .bt2 {
     background-color: red;
 }
+
+.home {
+    display: flex;
+    align-items: center;
+
+}
+
+.home a {
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
+    margin-top: 20px;
+}
+
+.home a svg {
+    height: 3rem;
+    width: 3rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.home a:hover svg {
+    transform: scale(1.2);
+}

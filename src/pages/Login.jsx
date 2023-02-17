@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import "../styles/Login.css";
+import Navbar from '../components/Navbar';
+import { AiFillHome } from 'react-icons/ai';
+import { Link } from 'react-router-dom';
+
 const Login = () => {
     const [userInfos, setUserInfos] = useState({
         email: '',
@@ -87,25 +91,29 @@ const Login = () => {
     }
 
     return (
-        <div className='Login'>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="email"
-                    name="email"
-                    value={userInfos.email}
-                    onChange={handleChange}
-                    placeholder="Email"
-                />
-                <input
-                    type="password"
-                    name="password"
-                    value={userInfos.password}
-                    onChange={handleChange}
-                    placeholder="Password"
-                />
-                <button type="submit">Login</button>
-            </form>
-        </div>
+
+        <><div className='home'>
+            <Link to="/">
+                <AiFillHome className="text-black hover:text-gray-400" />
+            </Link>
+        </div><div className='Login'>
+                <form onSubmit={handleSubmit}>
+                    <input
+                        type="email"
+                        name="email"
+                        value={userInfos.email}
+                        onChange={handleChange}
+                        placeholder="Email" />
+                    <input
+                        type="password"
+                        name="password"
+                        value={userInfos.password}
+                        onChange={handleChange}
+                        placeholder="Password" />
+                    <button type="submit">Login</button>
+                </form>
+            </div></>
+
     );
 };
 
