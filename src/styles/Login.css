@@ -3,7 +3,7 @@ form {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 50vh;
 
 }
 
@@ -47,16 +47,6 @@ button {
     margin: 10px 0;
 }
 
-.Login {
-    padding: 60px 0;
-}
-
-.Login form {
-    margin: 0 auto;
-    max-width: 320px;
-
-}
-
 .profile {
     position: absolute;
     width: 600px;
@@ -98,5 +88,42 @@ button {
 }
 
 .boutons .btn2 {
+    background-color: red;
+}
+
+.edit-profile {
+    position: absolute;
+    width: 600px;
+    height: 400px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+    background-color: whitesmoke;
+    border: solid 1px black
+}
+
+.edit-profile h1 {
+    text-align: left;
+    margin-top: 15px;
+    margin-left: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18pt;
+}
+
+.btns {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 40px;
+}
+
+.btns .bt1 {
+    background-color: blue;
+}
+
+.btns .bt2 {
     background-color: red;
 }
