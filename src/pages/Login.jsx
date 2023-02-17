@@ -53,31 +53,36 @@ const Login = () => {
         );
     } else if (isLogged && isEditing) {
         return (
-            <form onSubmit={handleSave}>
-                <input
-                    type="email"
-                    name="email"
-                    value={userInfos.email}
-                    onChange={handleChange}
-                    placeholder="Email"
-                />
-                <input
-                    type="text"
-                    name="lastname"
-                    value={userInfos.lastname}
-                    onChange={handleChange}
-                    placeholder="Last Name"
-                />
-                <input
-                    type="text"
-                    name="firstname"
-                    value={userInfos.firstname}
-                    onChange={handleChange}
-                    placeholder="First Name"
-                />
-                <button type="submit">Save</button>
-                <button onClick={() => setIsEditing(false)}>Cancel</button>
-            </form>
+            <div className='edit-profile'>
+                <h1>Edit your profile</h1>
+                <form onSubmit={handleSave}>
+                    <input
+                        type="email"
+                        name="email"
+                        value={userInfos.email}
+                        onChange={handleChange}
+                        placeholder="Email"
+                    />
+                    <input
+                        type="text"
+                        name="lastname"
+                        value={userInfos.lastname}
+                        onChange={handleChange}
+                        placeholder="Last Name"
+                    />
+                    <input
+                        type="text"
+                        name="firstname"
+                        value={userInfos.firstname}
+                        onChange={handleChange}
+                        placeholder="First Name"
+                    />
+                    <div className='btns'>
+                        <button onClick={() => setIsEditing(false)} className="bt2">Cancel</button>
+                        <button type="submit" className='bt1'>Save</button>
+                    </div>
+                </form>
+            </div>
         );
     }
 
