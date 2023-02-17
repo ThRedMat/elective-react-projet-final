@@ -6,6 +6,7 @@ import store from "../states/store";
 import FlitreStatus from '../components/FilterStatus';
 import FlitreOrder from '../components/FilterOrder';
 import Footer from '../components/Footer';
+import Filter from '../components/Filter';
 const Index = () => {
   return (
     <div>
@@ -13,8 +14,7 @@ const Index = () => {
         <Navbar />
 
         <div className="container">
-          <FlitreOrder />
-          <FlitreStatus />
+         <Filter />
           <MangasList />
         </div>
         <Footer />

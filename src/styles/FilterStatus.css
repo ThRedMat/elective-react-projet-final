@@ -1,0 +1,56 @@
+.checkbox-group > label {
+    display: inline-block;
+    margin-right: 1rem;
+  }
+  
+  .checkbox-group > label:last-child {
+    margin-right: 0;
+  }
+  
+  .checkbox-group > label > input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  .checkbox-group > label > span {
+    position: relative;
+    display: inline-block;
+    padding-left: 1.5rem;
+    margin-right: 0.5rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: #4a5568;
+  }
+  
+  .checkbox-group > label > span:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1rem;
+    height: 1rem;
+    border: 1px solid #cbd5e0;
+    border-radius: 0.25rem;
+  }
+  
+  .checkbox-group > label > input:checked + span:before {
+    background-color: #4299e1;
+    border-color: #4299e1;
+  }
+  
+  .checkbox-group > label > input:focus + span:before {
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+  }
+  
+  .checkbox-group > label > input:disabled + span {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .checkbox-group > label > input:disabled + span:before {
+    background-color: #e2e8f0;
+    border-color: #e2e8f0;
+  }
+  
