@@ -3,8 +3,6 @@ import Navbar from "../components/Navbar";
 import MangasList from "../components/MangasList";
 import {Provider} from "react-redux";
 import store from "../states/store";
-import FlitreStatus from '../components/FilterStatus';
-import FlitreOrder from '../components/FilterOrder';
 import Footer from '../components/Footer';
 import Filter from '../components/Filter';
 const Index = () => {
