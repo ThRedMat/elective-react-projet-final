@@ -1,0 +1,21 @@
+.login {
+    display: flex;
+    align-items: center;
+  }
+  
+  .login a {
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
+  }
+  
+  .login a svg {
+    height: 1.5rem;
+    width: 1.5rem;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .login a:hover svg {
+    transform: scale(1.2);
+  }
+  
