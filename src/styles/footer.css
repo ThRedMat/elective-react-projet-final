@@ -1,0 +1,26 @@
+/* Styling for Footer component */
+
+ul {
+    list-style-type: none;
+  }
+  
+  a {
+    color: white;
+  }
+  
+  a:hover {
+    color: #CCCCCC;
+  }
+  
+  li {
+    margin-bottom: 10px;
+  }
+  
+  li.text-xl {
+    font-size: 1.25rem;
+  }
+  
+  span {
+    font-size: 0.9rem;
+  }
+  

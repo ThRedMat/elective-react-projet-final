@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch,} from 'react-redux';
 import { Checkbox, CheckboxGroup } from 'rsuite';
 import {setOrder} from "../states/mangasSlice";
 
 const FiltreOrder = () => {
     const [value, setValue] = useState([]);
-    const mangas = useSelector((store) => store.mangas);
     const dispatch = useDispatch();
 
     const handleChange = (event) => {
@@ -50,4 +49,3 @@ const FiltreOrder = () => {
   };
 
 export default FiltreOrder;
-

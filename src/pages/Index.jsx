@@ -5,7 +5,7 @@ import {Provider} from "react-redux";
 import store from "../states/store";
 import FlitreStatus from '../components/FilterStatus';
 import FlitreOrder from '../components/FilterOrder';
-
+import Footer from '../components/Footer';
 const Index = () => {
   return (
     <div>
@@ -17,6 +17,7 @@ const Index = () => {
           <FlitreStatus />
           <MangasList />
         </div>
+        <Footer />
       </Provider>
     </div>
   );
