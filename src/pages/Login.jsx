@@ -39,7 +39,7 @@ const Login = () => {
 
     if (isLogged && !isEditing) {
         return (
-            <div className='edit-profile'>
+            <div className='profile'>
                 <h1>Your Profile :</h1>
                 <p>Email : {userInfos.email}</p>
                 <p>Last Name : {userInfos.lastname}</p>
