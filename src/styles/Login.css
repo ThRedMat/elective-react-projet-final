@@ -1,0 +1,94 @@
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+    padding: 10px;
+    margin: 10px 0;
+    width: 200px;
+    font-size: 18px;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+
+button[type="submit"],
+button {
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    background-color: lightblue;
+    color: white;
+    cursor: pointer;
+}
+
+.profile-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.profile-section h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.profile-section p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.Login {
+    padding: 60px 0;
+}
+
+.Login form {
+    margin: 0 auto;
+    max-width: 320px;
+
+}
+
+.edit-profile {
+    position: absolute;
+    width: 600px;
+    height: 400px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+
+    border: solid 1px black
+}
+
+.edit-profile h1 {
+    text-align: center;
+}
+
+.edit-profile p {
+    text-align: center;
+}
+
+.boutons {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.boutons .btn1 {
+    background-color: blue;
+    margin-top: 60px;
+}
+
+.boutons .btn2 {
+    background-color: red;
+}

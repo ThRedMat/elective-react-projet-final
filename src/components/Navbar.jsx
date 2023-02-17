@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SearchBar from './SearchBar';
+import Login from '../pages/Login';
 
 const Navbar = () => {
   return (
@@ -14,6 +15,11 @@ const Navbar = () => {
 
         <div className="mt-4 md:mt-0">
           <SearchBar placeholder="Search for a manga..." />
+        </div>
+        <div className='login'>
+          <Link to="/Login">
+            <h1>Login</h1>
+          </Link>
         </div>
       </div>
     </nav>
