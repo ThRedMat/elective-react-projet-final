@@ -40,10 +40,10 @@ const Login = () => {
     if (isLogged && !isEditing) {
         return (
             <div className='edit-profile'>
-                <h1>Profile</h1>
-                <p>Email: {userInfos.email}</p>
-                <p>Last Name: {userInfos.lastname}</p>
-                <p>First Name: {userInfos.firstname}</p>
+                <h1>Your Profile :</h1>
+                <p>Email : {userInfos.email}</p>
+                <p>Last Name : {userInfos.lastname}</p>
+                <p>First Name : {userInfos.firstname}</p>
                 <div className='boutons'>
                     <button onClick={handleEdit} className="btn1">Edit</button>
                     <button onClick={() => setIsLogged(false)} className="btn2">Logout</button>
