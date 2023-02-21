@@ -45,19 +45,19 @@ const FiltreOrder = () => {
         value="alphabetical order"
         className="text-gray-900 font-medium hover:text-gray-700 focus:text-gray-700"
       >
-        Sort by alphabetical order
+        Trier par ordre alphabétique
       </Checkbox>
       <Checkbox
         value="reverse alphabetical order"
         className="text-gray-900 font-medium hover:text-gray-700 focus:text-gray-700"
       >
-        Sort by reverse alphabetical order
+        Trier par ordre alphabétique inversé
       </Checkbox>
       <Checkbox
         value="rank order"
         className="text-gray-900 font-medium hover:text-gray-700 focus:text-gray-700"
       >
-        Sort by rank order
+        Trier par rang 
       </Checkbox>
     </CheckboxGroup>
   );

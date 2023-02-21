@@ -39,8 +39,8 @@ const FiltreStatus = () => {
         }}
         className="ml-2 bg-white rounded-md shadow-sm p-1"
       >
-        <Checkbox value="Finished" className="mr-2">Finished</Checkbox>
-        <Checkbox value="Publishing">Publishing</Checkbox>
+        <Checkbox value="Finished" className="mr-2">Fini</Checkbox>
+        <Checkbox value="Publishing">En cours de publication</Checkbox>
       </CheckboxGroup>
     </div>
   );
