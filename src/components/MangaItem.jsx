@@ -4,11 +4,12 @@ import { Link } from 'react-router-dom';
 const MangaItem = ({ manga }) => {
   return (
     <Link to={`manga/${manga.mal_id}`}>
-      <div className="card manga-item" style={{width: '18rem'}}>
-        <img src={IfImageNotFound(manga)} className="card-img-top" alt="" />
-          <div className="card-body">
-            <h5 className="card-title">{manga.title}</h5>
-          </div>
+      <div className="relative w-full max-w-sm mx-auto rounded-md overflow-hidden shadow-md group">
+        <div className="absolute inset-0 transition-all duration-500 ease-out bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-70"></div>
+        <img className="w-full h-64 object-cover object-center transition-all duration-500 ease-out group-hover:transform group-hover:scale-110" src={IfImageNotFound(manga)} alt={manga.title} />
+        <div className="absolute bottom-0 w-full py-3 bg-white bg-opacity-70 transition-all duration-500 ease-out group-hover:bg-opacity-100">
+          <h2 className="text-gray-800 font-medium px-4">{manga.title}</h2>
+        </div>
       </div>
     </Link>
   );

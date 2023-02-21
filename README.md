@@ -2,8 +2,10 @@
 cour de react M1 manga list description
 
 ## Début du projet 
-
-Idée de developpement 
+```bash	
+npm install
+npm start
+```
 
 ## Projet 
 
