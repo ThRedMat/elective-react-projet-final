@@ -6,7 +6,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import AnimeList from './components/AnimeList';
 import NotFound from './pages/PageNotFound';
 import Login from './pages/Login';
-
+import SignUp from './pages/SignUp';
 function App() {
   return (
     <div>
@@ -17,6 +17,7 @@ function App() {
           <Route path="/manga/:mangaId" element={<InfoManga />} />
           <Route path="*" element={<NotFound />} />
           <Route path="/Login" element={<Login />} />
+          <Route path="/SignUp" element={<SignUp />} />
         </Routes>
       </BrowserRouter>
     </div>

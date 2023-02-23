@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase';
 
@@ -33,7 +33,7 @@ const Login = () => {
       <div className="max-w-md w-full space-y-8">
         <div>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-            Sign in to your account
+           Connectez vous 
           </h2>
         </div>
         <form className="mt-8 space-y-6" onSubmit={onSubmit}>
@@ -41,7 +41,7 @@ const Login = () => {
           <div className="rounded-md shadow-sm -space-y-px">
             <div>
               <label htmlFor="email-address" className="sr-only">
-                Email address
+                Adresse mail
               </label>
               <input
                 id="email-address"
@@ -57,7 +57,7 @@ const Login = () => {
             </div>
             <div>
               <label htmlFor="password" className="sr-only">
-                Password
+                Mot de passe
               </label>
               <input
                 id="password"
@@ -85,7 +85,7 @@ const Login = () => {
                 htmlFor="remember-me"
                 className="ml-2 block text-sm text-gray-900"
               >
-                Remember me
+                Se souvenir de moi
               </label>
             </div>
 
@@ -94,7 +94,7 @@ const Login = () => {
                 to="/forgot-password"
                 className="font-medium text-indigo-600 hover:text-indigo-500"
               >
-                Forgot
+                Mot de passe oublié ?
               </NavLink>
             </div>
           </div>
@@ -119,7 +119,7 @@ const Login = () => {
                   />
                 </svg>
               </span>
-              Sign in
+             <Link to ="/">Se connecter </Link> 
             </button>
           </div>
         </form>
