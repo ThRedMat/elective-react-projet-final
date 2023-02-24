@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase';
+import './SignUp.jsx';
+
+
 
 const Login = () => {
   const navigate = useNavigate();
@@ -33,7 +36,7 @@ const Login = () => {
       <div className="max-w-md w-full space-y-8">
         <div>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-           Connectez vous 
+            Connectez vous
           </h2>
         </div>
         <form className="mt-8 space-y-6" onSubmit={onSubmit}>
@@ -119,8 +122,18 @@ const Login = () => {
                   />
                 </svg>
               </span>
-             <Link to ="/">Se connecter </Link> 
+              <Link to="/">Se connecter </Link>
             </button>
+          </div>
+          <div>
+
+            <Link to="/SignUp" className="text-white">
+              <button className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+
+                S'inscrire
+              </button>
+            </Link>
+
           </div>
         </form>
       </div>
