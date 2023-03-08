@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Footer from '../components/Footer';
 
 function Anime() {
   const [animeList, setAnimeList] = useState([]);
@@ -23,7 +24,9 @@ function Anime() {
             </li>
           ))}
         </ul>
+
       </div>
+      <Footer />
     </div>
   );
 }
