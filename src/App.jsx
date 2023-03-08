@@ -8,6 +8,7 @@ import NotFound from './pages/PageNotFound';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import ProfilInfos from './pages/ProfilInfos';
+import Suggestions from './components/Suggestions';
 function App() {
   return (
     <div>
@@ -20,6 +21,7 @@ function App() {
           <Route path="/Login" element={<Login />} />
           <Route path="/SignUp" element={<SignUp />} />
           <Route path="/Profil" element={<ProfilInfos />} />
+          <Route path="/suggestions" element={<Suggestions />} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -14,10 +14,10 @@ const Footer = () => {
               <Link to="/anime" className="block py-4 hover:underline">Go to Anime</Link>
             </li>
             <li className="mr-6">
-              <Link to="/mangas" className="block py-4 hover:underline">Go to Mangas</Link>
+              <Link to="/manga" className="block py-4 hover:underline">Go to Mangas</Link>
             </li>
             <li>
-              <Link to="/Suggestions" className='block py-4 hover:underline'>Nos mangas préférés</Link>
+              <Link to="/suggestions" className='block py-4 hover:underline'>Nos mangas préférés</Link>
             </li>
           </ul>
         </div>

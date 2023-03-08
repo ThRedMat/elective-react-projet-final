@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import { getDatabase, ref, push, set } from 'firebase/database';
 import { auth } from '../firebase';
+import { Link } from 'react-router-dom';
 
 import { FaEnvelope, FaLock } from 'react-icons/fa';
 import { RiUser3Fill } from 'react-icons/ri';
@@ -49,7 +50,7 @@ function SignUpForm() {
           <div className="mb-4">
             <label htmlFor="username" className="block text-gray-700 font-bold mb-2">
               <span className="flex items-center">
-                <RiUser3Fill className="mr-2" /> Username:
+                <RiUser3Fill className="mr-2" /> Pseudo:
               </span>
             </label>
             <input
@@ -77,7 +78,7 @@ function SignUpForm() {
           <div className="mb-6">
             <label htmlFor="password" className="block text-gray-700 font-bold mb-2">
               <span className="flex items-center">
-                <FaLock className="mr-2" /> Password:
+                <FaLock className="mr-2" /> Mot de passe:
               </span>
             </label>
             <input
@@ -87,19 +88,21 @@ function SignUpForm() {
               onChange={(e) => setPassword(e.target.value)}
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
-            </div>
-            <div className="flex items-center justify-between">
-                <button
-                    type="submit"
-                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                >
-                    Sign Up
-                </button>
-            </div>
+          </div>
+          <div className="flex items-center justify-between">
+            <Link to="/">
+              <button
+                type="submit"
+                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              >
+                S'inscrire
+              </button>
+            </Link>
+          </div>
         </form>
-        </div>
+      </div>
     </div>
-    );
+  );
 }
 
 export default SignUpForm;
