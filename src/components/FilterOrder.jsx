@@ -1,22 +1,26 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Checkbox, CheckboxGroup } from 'rsuite';
 import { setOrder } from '../states/mangasSlice';
 import '../styles/mangasList.css';
+import FiltreStatus from './FilterStatus';
+
 const FiltreOrder = () => {
   const [value, setValue] = useState([]);
+
   const dispatch = useDispatch();
 
   const handleChange = (event) => {
     dispatch(setOrder(event));
-  };
 
+  };
   return (
+
     <CheckboxGroup
       inline
       name="checkboxList"
       value={value}
-      onChange={(value) => {
+      onChange={value => {
         if (value[value.length - 1] === 'alphabetical order') {
           delete value[value.indexOf('reverse alphabetical order')];
           delete value[value.indexOf('rank order')];
@@ -38,9 +42,13 @@ const FiltreOrder = () => {
         console.log(value);
         setValue(value);
         handleChange(value);
-      }}
+
+      }
+      }
+
       className="flex flex-col sm:flex-row items-center justify-center gap-4 p-4 bg-gray-100 rounded-lg shadow-md"
     >
+      <FiltreStatus></FiltreStatus>
       <Checkbox
         value="alphabetical order"
         className="text-gray-900 font-medium hover:text-gray-700 focus:text-gray-700"
@@ -57,7 +65,7 @@ const FiltreOrder = () => {
         value="rank order"
         className="text-gray-900 font-medium hover:text-gray-700 focus:text-gray-700"
       >
-        Trier par rang 
+        Trier par rang
       </Checkbox>
     </CheckboxGroup>
   );

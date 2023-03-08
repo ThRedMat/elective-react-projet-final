@@ -20,9 +20,9 @@ const FiltreStatus = () => {
         name="checkboxList"
         value={value}
         onChange={value => {
-          if (value[value.length-1] === "Finished") { 
+          if (value[value.length - 1] === "Finished") {
             delete value[value.indexOf("Publishing")];
-          } else if (value[value.length-1] === "Publishing") {
+          } else if (value[value.length - 1] === "Publishing") {
             delete value[value.indexOf("Finished")];
           }
           let newValue = [];
@@ -37,10 +37,10 @@ const FiltreStatus = () => {
           setValue(value);
           handleChange(value);
         }}
-        className="ml-2 bg-white rounded-md shadow-sm p-1"
+        className="flex flex-col sm:flex-row items-center justify-center gap-4 p-4 bg-gray-100 rounded-lg "
       >
-        <Checkbox value="Finished" className="mr-2">Fini</Checkbox>
-        <Checkbox value="Publishing">En cours de publication</Checkbox>
+        <Checkbox value="Finished" className="text-gray-900 font-medium hover:text-gray-700 focus:text-gray-700">Fini</Checkbox>
+        <Checkbox value="Publishing" className='text-gray-900 font-medium hover:text-gray-700 focus:text-gray-700'>En cours de publication</Checkbox>
       </CheckboxGroup>
     </div>
   );

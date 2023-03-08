@@ -5,7 +5,7 @@ import FiltreOrder from './FilterOrder';
 const Filter = () => {
   return (
     <div className="flex justify-between items-center filter-container">
-      <FiltreStatus />
+      {/*<FiltreStatus />*/}
       <FiltreOrder />
     </div>
   );
