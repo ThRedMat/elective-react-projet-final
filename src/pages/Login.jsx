@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../firebase';
+import app from '../firebase';
+
 import './SignUp.jsx';
+
 
 const Login = () => {
   const navigate = useNavigate();
@@ -11,7 +13,7 @@ const Login = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    await createUserWithEmailAndPassword(auth, email, password)
+    await createUserWithEmailAndPassword(app.auth(), email, password)
       .then((userCredential) => {
         const user = userCredential.user;
         console.log(user);
@@ -93,6 +95,7 @@ const Login = () => {
             </div>
           </div>
           <div>
+          <Link to="/">
             <button
               type="submit"
               className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
@@ -117,8 +120,11 @@ const Login = () => {
                   />
                 </svg>
               </span>
+              
               Se connecter
+
             </button>
+            </Link>
           </div>
         </form>
         <div className="text-center">
