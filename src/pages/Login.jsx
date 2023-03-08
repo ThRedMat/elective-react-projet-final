@@ -4,39 +4,32 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase';
 import './SignUp.jsx';
 
-
-
 const Login = () => {
   const navigate = useNavigate();
-
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const onSubmit = async (e) => {
     e.preventDefault();
-
     await createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        // Signed in
         const user = userCredential.user;
         console.log(user);
-        navigate('/login');
-        // ...
+        navigate('/');
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorCode, errorMessage);
-        // ..
       });
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
         <div>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-            Connectez vous
+            Connectez-vous
           </h2>
         </div>
         <form className="mt-8 space-y-6" onSubmit={onSubmit}>
@@ -55,7 +48,7 @@ const Login = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                placeholder="Email address"
+                placeholder="Adresse e-mail"
               />
             </div>
             <div>
@@ -71,11 +64,10 @@ const Login = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                placeholder="Password"
+                placeholder="Mot de passe"
               />
             </div>
           </div>
-
           <div className="flex items-center justify-between">
             <div className="flex items-center">
               <input
@@ -91,7 +83,6 @@ const Login = () => {
                 Se souvenir de moi
               </label>
             </div>
-
             <div className="text-sm">
               <NavLink
                 to="/forgot-password"
@@ -101,7 +92,6 @@ const Login = () => {
               </NavLink>
             </div>
           </div>
-
           <div>
             <button
               type="submit"
@@ -117,25 +107,32 @@ const Login = () => {
                 >
                   <path
                     fillRule="evenodd"
-                    d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 6a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 6a1 1 0 011-1h7a1 1 0 110 2H4a1 1 0 01-1-1z"
+                    d="M3 6a3 3 0 013-3h4a3 3 0 013 3v8a3 3 0 01-3 3H6a3 3 0 01-3-3V6zm3-1a1 1 0 00-1 1v8a1 1 0 001 1h4a1 1 0 001-1V6a1 1 0 00-1-1H6z"
+                    clipRule="evenodd"
+                  />
+                  <path
+                    fillRule="evenodd"
+                    d="M8 3a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 11-2 0V4H9v1a1 1 0 01-2 0V3z"
                     clipRule="evenodd"
                   />
                 </svg>
               </span>
-              <Link to="/">Se connecter </Link>
+              Se connecter
             </button>
           </div>
-          <div>
-
-            <Link to="/SignUp" className="text-white">
-              <button className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-
-                S'inscrire
-              </button>
-            </Link>
-
-          </div>
         </form>
+        <div className="text-center">
+          <p className="text-sm text-gray-600">
+            Vous n'avez pas de compte ?
+            <NavLink
+              to="/signup"
+              className="font-medium text-indigo-600 hover:text-indigo-500"
+            >
+              {' '}
+              S'inscrire
+            </NavLink>
+          </p>
+        </div>
       </div>
     </div>
   );
