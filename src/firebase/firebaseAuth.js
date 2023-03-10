@@ -1,8 +1,8 @@
-
-// firebase.js
-import { initializeApp } from 'firebase/app';
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
 
 const firebaseConfig = {
+  // votre configuration Firebase ici
   apiKey: "AIzaSyBhoA_8WI2RP36KYVbBhR_6xd_sWylKuyA",
   authDomain: "mangalist-93c77.firebaseapp.com",
   projectId: "mangalist-93c77",
@@ -12,9 +12,9 @@ const firebaseConfig = {
   measurementId: "G-29BC3PVQRT"
 };
 
-const app = initializeApp(firebaseConfig);
+// Initialiser Firebase
+firebase.initializeApp(firebaseConfig);
 
-export default app;
+const auth = firebase.auth();
 
-
-
+export default auth;
