@@ -23,15 +23,16 @@ npm start
 ✅Ajout favoris
 ✅Connexion api externe
 ✅Contexte et Redux
-
+✅Token generer lors de la connexion 
+✅Favoris stocker dans firebase
 ## En cours :
 
 🕒Animations lors d'un ajout de favoris 
-🕒Sign up pas relié a firebase
+
 
 ## Bugs :
 
 ❌ Favoris pas liés au compte: Ajouter des favoris sans être connecté
 ❌ Bug de l'api qui n'affiche pas tout les détails des animés affichés
 ❌ bug sur l'edition de profil les infos ne sont pas stocker dans le firebase donc on ne les retrouve pas sur la page de profil 
-
+❌ Sign up pas relié a firebase

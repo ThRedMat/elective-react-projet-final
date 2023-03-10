@@ -31,37 +31,32 @@ const MangaInfos = () => {
 
   return (
     <div className="w-full h-full flex flex-col items-center justify-center space-y-8">
-      <h1 className="text-3xl font-bold">
-        {mangas.find((manga) => manga.mal_id === parseInt(mangaId)).title}
-      </h1>
-      <img
-        className="w-64 h-96 object-cover rounded-md shadow-lg"
-        src={IfImageNotFound(mangas, mangaId)}
-        alt="image"
-      />
-      <p className="text-lg">
-        Nombre de volumes publiés :{" "}
-        {mangas.find((manga) => manga.mal_id === parseInt(mangaId)).volumes}
-      </p>
-      <p className="text-lg">
-        Nombre de chapitres publiés :{" "}
-        {mangas.find((manga) => manga.mal_id === parseInt(mangaId)).chapters}
-      </p>
-      <p className="text-lg">
-        {mangas.find((manga) => manga.mal_id === parseInt(mangaId)).status}
-      </p>
-      <p className="text-lg">
-        Première publication le{" "}
-        { mangas.find((manga) => manga.mal_id === parseInt(mangaId)).published.string}
-      </p>
-      <p className="text-lg">
-        Synopsis :{" "}
-        {mangas.find((manga) => manga.mal_id === parseInt(mangaId)).synopsis}
-      </p>
-      <button
-        className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
-        onClick={handleAddFavorite}
-      >
+      <h1 className="text-3xl font-bold">{mangas.find((manga) => manga.mal_id === parseInt(mangaId)).title}</h1>
+      <img className="w-64 h-96 object-cover rounded-md shadow-lg" src={IfImageNotFound(mangas, mangaId)} alt="image" />
+      <div className="grid grid-cols-2 gap-4 w-full max-w-3xl">
+        <div className="flex flex-col space-y-2">
+          <div className="bg-gray-100 px-4 py-2 rounded-lg">
+            <p className="text-gray-500 font-semibold">Nombre de volumes publiés</p>
+            <p className="text-lg">{mangas.find((manga) => manga.mal_id === parseInt(mangaId)).volumes}</p>
+          </div>
+          <div className="bg-gray-100 px-4 py-2 rounded-lg">
+            <p className="text-gray-500 font-semibold">Nombre de chapitres publiés</p>
+            <p className="text-lg">{mangas.find((manga) => manga.mal_id === parseInt(mangaId)).chapters}</p>
+          </div>
+        </div>
+        <div className="flex flex-col space-y-2">
+          <div className="bg-gray-100 px-4 py-2 rounded-lg">
+            <p className="text-gray-500 font-semibold">Statut</p>
+            <p className="text-lg">{mangas.find((manga) => manga.mal_id === parseInt(mangaId)).status}</p>
+          </div>
+          <div className="bg-gray-100 px-4 py-2 rounded-lg">
+            <p className="text-gray-500 font-semibold">Première publication</p>
+            <p className="text-lg">{mangas.find((manga) => manga.mal_id === parseInt(mangaId)).published.string}</p>
+          </div>
+        </div>
+      </div>
+      <p className="text-lg max-w-3xl">{mangas.find((manga) => manga.mal_id === parseInt(mangaId)).synopsis}</p>
+      <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" onClick={handleAddFavorite}>
         Ajouter aux favoris
       </button>
     </div>

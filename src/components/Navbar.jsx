@@ -15,7 +15,7 @@ const Navbar = () => {
         </div>
 
         <div className="mt-4 md:mt-0">
-          <SearchBar placeholder="Search for a manga..." />
+          <SearchBar placeholder="Chercher un manga" />
         </div>
         <div className='login'>
           <Link to="/Login">
