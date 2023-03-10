@@ -1,10 +1,10 @@
 # M1react
-cour de react M1 manga list description
-
+cour de react M1 manga list description, utilisant tailwind css et css personnalisé
+Ce projet utilise l'api animelist et firebase pour la base de donnée 
 ## Début du projet 
 ```bash	
 npm install
-npm start
+npm run start
 ```
 
 ## Projet 
@@ -25,14 +25,15 @@ npm start
 ✅Contexte et Redux
 ✅Token generer lors de la connexion 
 ✅Favoris stocker dans firebase
+✅ Sign up relié a firebase
+✅ Cookie pour le signin et connexion qui me permet de garder un etat connecter 
 ## En cours :
-
-🕒Animations lors d'un ajout de favoris 
-
 
 ## Bugs :
 
-❌ Favoris pas liés au compte: Ajouter des favoris sans être connecté
-❌ Bug de l'api qui n'affiche pas tout les détails des animés affichés
-❌ bug sur l'edition de profil les infos ne sont pas stocker dans le firebase donc on ne les retrouve pas sur la page de profil 
-❌ Sign up pas relié a firebase
+❌ Favoris pas liés au compte: Ajouter des favoris sans être connecté les favoris s'inscrivent dans la base firebase quand meme 
+❌ bug sur l'edition de profil les infos ne recupere pas le cookie pour modifier les informations utilisateurs 
+
+
+
+

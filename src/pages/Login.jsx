@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { firebase, tokenUserRef } from '../firebase/firebase.js';
+import { useCookies } from 'react-cookie'; // import react-cookie
 
 import './SignUp.jsx';
 
@@ -13,6 +14,7 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [token, setToken] = useState('');
+  const [cookies, setCookie] = useCookies(['uid']); // set up cookies
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -26,6 +28,8 @@ const Login = () => {
           localStorage.setItem('token', token);
           // Store the token in Firestore
           tokenUserRef.doc(user.uid).set({ token });
+          // Store the user uid in cookie
+          setCookie('uid', user.uid, { path: '/' });
           // Update the context with the token
           setToken(token);
         });
@@ -108,22 +112,51 @@ const Login = () => {
               </div>
               <div className="text-sm">
                 <Link
-                  to="/SignUp"
+                  to="/forgot-password"
                   className="font-medium text-indigo-600 hover:text-indigo-500"
                 >
-                  Pas encore de compte ? Inscrivez-vous !
+                  Mot de passe oublié ?
                 </Link>
               </div>
             </div>
             <div>
-              <button 
+              <button
                 type="submit"
                 className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
+                <span className="absolute left-0 inset-y-0 flex items-center pl-3">
+                  <svg
+
+                    className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400" 
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M3.172 3.172a4 4 0 015.656 0L10 4.343l1.172-1.07a4 4 0 115.656 5.656l-1.07 1.172 1.07 1.172a4 4 0 01-5.656 5.656l-1.172-1.07-1.172 1.07a4 4 0 01-5.656-5.656l1.07-1.172-1.07-1.172a4 4 0 015.656-5.656zM10 14a4 4 0 100-8 4 4 0 000 8z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </span>
                 Se connecter
               </button>
             </div>
           </form>
+          <div className="text-center">
+            <p className="text-sm text-gray-600">
+              Vous n'avez pas de compte ?
+              <Link
+                to="/signup"
+                className="font-medium text-indigo-600 hover:text-indigo-500"
+              >
+                {' '}
+                Créer un compte
+              </Link>
+
+            </p>
+          </div>
         </div>
       </div>
     </AuthContext.Provider>
@@ -131,5 +164,3 @@ const Login = () => {
 };
 
 export default Login;
-
- 

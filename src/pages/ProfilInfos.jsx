@@ -1,47 +1,66 @@
 import React, { useState, useEffect } from "react";
+import { useCookies } from "react-cookie";
 import firebase from "firebase/compat/app";
 import "firebase/firestore";
 import "firebase/auth";
 import "tailwindcss/tailwind.css";
 
-const ProfileInfos = ({ currentUser }) => {
+const ProfileInfos = () => {
+const [cookies] = useCookies(["uid"]);
 const [displayName, setDisplayName] = useState("");
 const [email, setEmail] = useState("");
 const [photoURL, setPhotoURL] = useState("");
 const [isEditing, setIsEditing] = useState(false);
-const [uid, setUid] = useState("");
 
 useEffect(() => {
-if (currentUser) {
-setDisplayName(currentUser.displayName);
-setEmail(currentUser.email);
-setPhotoURL(currentUser.photoURL);
-setUid(currentUser.uid);
+if (cookies.uid) {
+const db = firebase.firestore();
+db.collection("user")
+.doc(cookies.uid)
+.get()
+.then((doc) => {
+if (doc.exists) {
+const data = doc.data();
+setDisplayName(data.displayName || "");
+setEmail(data.email || "");
+setPhotoURL(data.photoURL || "");
+} else {
+console.log("No such document!");
 }
-}, [currentUser]);
+})
+.catch((error) => {
+console.log("Error getting document:", error);
+});
+}
+}, [cookies.uid]);
 
 const handleSave = () => {
 const user = firebase.auth().currentUser;
+const db = firebase.firestore();
 
 if (user) {
-  user.updateProfile({
-    displayName: displayName,
-    photoURL: photoURL,
-  })
+  user
+    .updateProfile({
+      displayName: displayName,
+      photoURL: photoURL,
+    })
     .then(() => {
       setIsEditing(false);
       console.log("Profile updated successfully!");
-      firebase.firestore().collection("utilisateur").doc(uid).update({
-        displayName: displayName,
-        email: email,
-        photoURL: photoURL,
-      })
-      .then(() => {
-        console.log("User document updated successfully!");
-      })
-      .catch((error) => {
-        console.error("Error updating user document:", error);
-      });
+      db.collection("user")
+        .doc(cookies.uid)
+        .set({
+          displayName: displayName,
+          email: email,
+          photoURL: photoURL,
+          uid: cookies.uid,
+        })
+        .then(() => {
+          console.log("User document created successfully!");
+        })
+        .catch((error) => {
+          console.error("Error creating user document:", error);
+        });
     })
     .catch((error) => {
       console.error("Error updating profile:", error);
@@ -90,60 +109,48 @@ value={photoURL}
 onChange={(e) => setPhotoURL(e.target.value)}
 />
 </div>
-<div className="flex justify-between">
 <button
-onClick={() => setIsEditing(false)}
-className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline flex items-center"
->
-<svg
-className="fill-current w-4 h-4 mr-2"
-xmlns="http://www.w3.org/2000/svg"
-viewBox="0 0 20 20"
->
-<path d="M10 12a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 2a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" />
-</svg>
-<span>Cancel</span>
-</button>
-<button
+className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
 onClick={handleSave}
-className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-flex items-center"
 >
-<svg
-className="fill-current w-4 h-4 mr-2"
-xmlns="http://www.w3.org/2000/svg"
-viewBox="0 0 20 20"
->
-<path d="M10 12a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 2a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" />
+Save
 
-</svg>
 </button>
-</div>
 </div>
 ) : (
 <div className="bg-white rounded-lg shadow-lg p-4">
 <h2 className="text-2xl font-bold mb-4">Profile</h2>
-<div className="flex items-center mb-4">
+<div className="form-group mb-4">
+<label htmlFor="displayName" className="block font-bold mb-2">
+Display Name:
+</label>
+<p className="text-gray-700">{displayName}</p>
+</div>
+<div className="form-group mb-4">
+<label htmlFor="email" className="block font-bold mb-2">
+Email:
+</label>
+<p className="text-gray-700">{email}</p>
+</div>
+<div className="form-group mb-4">
+<label htmlFor="photoURL" className="block font-bold mb-2">
+Photo URL:
+</label>
+<p className="text-gray-700">{photoURL}</p>
+{photoURL ? (
 <img
 src={photoURL}
-alt="avatar"
-className="h-12 w-12 rounded-full mr-4"
+alt="Profile"
+className="w-32 h-32 rounded-full mt-4"
 />
-<div>
-<p className="text-gray-700 font-bold">{displayName}</p>
-<p className="text-gray-700 text-sm">{email}</p>
-</div>
+) : null}
 </div>
 <button
+className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
 onClick={() => setIsEditing(true)}
-className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-flex items-center"
 >
-<svg
-className="fill-current w-4 h-4 mr-2"
-xmlns="http://www.w3.org/2000/svg"
-viewBox="0 0 20 20"
->
-<path d="M10 12a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 2a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" />
-</svg>
+Edit
+
 </button>
 </div>
 )}
