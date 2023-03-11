@@ -8,9 +8,6 @@ const Footer = () => {
         <div className="flex justify-center">
           <ul className="mr-12 flex flex-wrap">
             <li className="mr-6">
-              <Link to="/anime" className="block py-4 hover:underline">Allez au anime</Link>
-            </li>
-            <li className="mr-6">
               <Link to="/" className="block py-4 hover:underline">Allez au mangas</Link>
             </li>
           </ul>
