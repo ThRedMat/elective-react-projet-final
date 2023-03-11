@@ -4,9 +4,10 @@ import firebase from "firebase/compat/app";
 import "firebase/firestore";
 import "firebase/auth";
 import "tailwindcss/tailwind.css";
+import { Link } from "react-router-dom";
 
 const ProfileInfos = () => {
-  const [cookies] = useCookies(["uid"]);
+  const [cookies, setCookie, removeCookie] = useCookies(["uid"]);
   const [displayName, setDisplayName] = useState("");
   const [email, setEmail] = useState("");
   const [photoURL, setPhotoURL] = useState("");
@@ -68,14 +69,18 @@ const ProfileInfos = () => {
     }
   };
 
+  const handleLogout = () => {
+    removeCookie("uid");
+  };
+
   return (
     <div className="max-w-md mx-auto">
       {isEditing ? (
         <div className="bg-white rounded-lg shadow-lg p-4">
-          <h2 className="text-2xl font-bold mb-4">Edit Profile</h2>
+          <h2 className="text-2xl font-bold mb-4">Edition Profile</h2>
           <div className="form-group mb-4">
             <label htmlFor="displayName" className="block font-bold mb-2">
-              Display Name:
+              Pseudo
             </label>
             <input
               type="text"
@@ -90,7 +95,7 @@ const ProfileInfos = () => {
               Email:
             </label>
             <input 
-              type="email"
+              type="text"
               id="email"
               className="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               value={email}
@@ -102,6 +107,7 @@ const ProfileInfos = () => {
               Photo URL:
             </label>
             <input
+
               type="text"
               id="photoURL"
               className="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -110,40 +116,46 @@ const ProfileInfos = () => {
             />
           </div>
           <div className="flex justify-end">
-            <button
 
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"  
+            <button
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
               onClick={handleSave}
             >
-              Save
+              Sauvegarder
             </button>
           </div>
         </div>
       ) : (
-
         <div className="bg-white rounded-lg shadow-lg p-4">
-
           <h2 className="text-2xl font-bold mb-4">Profile</h2>
           <div className="flex items-center mb-4">
             <img
+
               className="w-16 h-16 rounded-full mr-4"
               img src={photoURL}
-              alt="Avatar of User"
+              alt="Profile"
             />
             <div className="text-sm">
               <p className="text-gray-900 leading-none">{displayName}</p>
               <p className="text-gray-600">{email}</p>
             </div>
-
           </div>
           <div className="flex justify-end">
             <button
-
               className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
               onClick={() => setIsEditing(true)}
             >
-              Edit
+              Editer
             </button>
+            <Link to="/">
+            <button
+              
+              className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ml-4"
+              onClick={handleLogout}
+            >
+              Deconnexion
+            </button>
+            </Link>
           </div>
         </div>
       )}
@@ -152,6 +164,3 @@ const ProfileInfos = () => {
 };
 
 export default ProfileInfos;
-
-
-           
