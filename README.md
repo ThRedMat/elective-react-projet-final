@@ -33,7 +33,7 @@ npm run start
 ## Bugs :
 
 ❌ Favoris pas liés au compte: Ajouter des favoris sans être connecté les favoris s'inscrivent dans la base firebase quand meme 
-
+❌ navbar logo cassé (il faut cliquer sur l'image cassé sinon les infos ne sont pas sauvegardees)
 
 
 
