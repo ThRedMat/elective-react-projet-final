@@ -34,30 +34,6 @@ const ProfileInfos = () => {
     }
   }, [cookies.uid]);
 
-  useEffect(() => {
-    const db = firebase.firestore();
-    firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        db.collection("user")
-          .doc(user.uid)
-          .get()
-          .then((doc) => {
-            if (doc.exists) {
-              const data = doc.data();
-              setDisplayName(data.displayName || "");
-              setEmail(data.email || "");
-              setPhotoURL(data.photoURL || "");
-            } else {
-              console.log("No such document!");
-            }
-          })
-          .catch((error) => {
-            console.log("Error getting document:", error);
-          });
-      }
-    });
-  }, []);
-
   const handleSave = () => {
     const user = firebase.auth().currentUser;
     const db = firebase.firestore();
@@ -126,7 +102,6 @@ const ProfileInfos = () => {
               Photo URL:
             </label>
             <input
-
               type="text"
               id="photoURL"
               className="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -136,7 +111,8 @@ const ProfileInfos = () => {
           </div>
           <div className="flex justify-end">
             <button
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"  
               onClick={handleSave}
             >
               Save
@@ -144,17 +120,25 @@ const ProfileInfos = () => {
           </div>
         </div>
       ) : (
+
         <div className="bg-white rounded-lg shadow-lg p-4">
+
           <h2 className="text-2xl font-bold mb-4">Profile</h2>
           <div className="flex items-center mb-4">
-           
-            <div className="ml-4">
-              <h3 className="text-lg font-bold">{displayName}</h3>
+            <img
+              className="w-16 h-16 rounded-full mr-4"
+              img src={photoURL}
+              alt="Avatar of User"
+            />
+            <div className="text-sm">
+              <p className="text-gray-900 leading-none">{displayName}</p>
               <p className="text-gray-600">{email}</p>
             </div>
+
           </div>
           <div className="flex justify-end">
             <button
+
               className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
               onClick={() => setIsEditing(true)}
             >
@@ -168,3 +152,6 @@ const ProfileInfos = () => {
 };
 
 export default ProfileInfos;
+
+
+           

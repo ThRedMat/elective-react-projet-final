@@ -39,13 +39,15 @@ const Navbar = () => {
         {loggedIn ? (
           <div className='login'>
             <Link to="/profil">
+              <img src="mon-logo.png" alt="Logo de profil" className="h-8 w-8 rounded-full" />
               <FiLogOut className="text-white hover:text-gray-400" onClick={handleLogout} /> {/* Affichage de l'icone de déconnexion si l'utilisateur est connecté */}
             </Link>
           </div>
         ) : (
           <div className='login'>
             <Link to="/Login">
-              <FiLogIn className="text-white hover:text-gray-400" /> {/* Affichage de l'icone de connexion si l'utilisateur n'est pas connecté */}
+              <img src="./img/kisspng-computer-icons-avatar-download-user-profile-user-avatar-5b5dd917e65c43.8958822015328770799436.png" alt="Logo de profil" className="h-8 w-8 rounded-full" />
+              {/* Affichage de l'icone de connexion si l'utilisateur n'est pas connecté */}
             </Link>
           </div>
         )}
