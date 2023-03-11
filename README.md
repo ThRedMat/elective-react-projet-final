@@ -25,14 +25,14 @@ npm run start
 ✅Contexte et Redux
 ✅Token generer lors de la connexion 
 ✅Favoris stocker dans firebase
-✅ Sign up relié a firebase
-✅ Cookie pour le signin et connexion qui me permet de garder un etat connecter 
+✅Sign up relié a firebase
+✅Cookie pour le signin et connexion qui me permet de garder un etat connecter 
+✅ Page de profil qui recupere les infos de firebase
 ## En cours :
 
 ## Bugs :
 
 ❌ Favoris pas liés au compte: Ajouter des favoris sans être connecté les favoris s'inscrivent dans la base firebase quand meme 
-❌ bug sur l'edition de profil les infos ne recupere pas le cookie pour modifier les informations utilisateurs 
 
 
 

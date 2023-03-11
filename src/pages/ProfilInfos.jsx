@@ -92,7 +92,7 @@ const ProfileInfos = () => {
           </div>
           <div className="form-group mb-4">
             <label htmlFor="email" className="block font-bold mb-2">
-              Email:
+              A propos de moi 
             </label>
             <input 
               type="text"
